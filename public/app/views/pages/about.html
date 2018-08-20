@@ -1,0 +1,54 @@
+<div class="page-header">
+    <h1> {{ main.username.toUpperCase() }}</h1>
+</div>
+<div ng-controller="appUploadController as uc">
+    <form name="uc.uploadForm">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <label class="label-form" for="image">Upload Pdf:</label>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <input class="form-group" type="file" ngf-select ng-model="uc.file" name="file" ngf-accept="'application/pdf'" />
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-primary" ng-click="uc.submit()">submit</button>
+                                </div>
+                            </div>
+                        </div>
+                            <br>
+                            <div class="row" style="margin-left: 10px;">
+                                <div class="col-md-10">
+                                    <div class="progress" ng-show="uc.showProgressBar">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: {{uc.progressPercentage}}%" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="col-md-12">
+                        <div class="row show-hide-message" ng-show="uc.successMsg">
+                            <div class="alert alert-success"> <span class="glyphicon glyphicon-ok">&nbsp;</span>{{uc.successMsg}} </div>
+                        </div>
+                        <div class="row show-hide-message" ng-show="uc.errorMsg">
+                            <div class="alert alert-danger"><span class="glyphicon glyphicon-remove">&nbsp;</span> {{uc.errorMsg}} </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div>
+        <ul class="list-group" style="list-style-type:none">
+            <li>
+                <a href="#" class="list-group-item" ng-click="uc.openPdfDocument(doc.filename)" ng-repeat="doc in uc.documentList track by $index">
+                    <span class="glyphicon glyphicon-file" aria-hidden="true">&nbsp;</span>{{ doc.metadata.originalname }}</a>
+            </li>
+        </ul>
+    </div>
+</div>

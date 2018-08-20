@@ -1,0 +1,40 @@
+<div>
+    <h3> Teacher Registration Page </h3>
+</div>
+
+<form ng-submit="register.regUser(regData);">
+    <!--Name-->
+    <label> Full Name </label>
+    <input class="form-control" type="text" name="Name" placeholder="Please enter your Name" ng-model="register.regData.name">
+    <br>
+    <!--E-Mail-->
+    <label> E-mail </label>
+    <input class="form-control" type="text" name="E-mail" placeholder="Please enter your E-Mail" ng-model="register.regData.email">
+    <br>
+    <!--Username-->
+    <label> Username </label>
+    <input class="form-control" type="text" name="username" placeholder="Please enter your username" ng-model="register.regData.username">
+    <br>
+    <!--Password-->
+    <label> Password </label>
+    <input class="form-control" type="password" name="Password" placeholder="Please enter a strong password" ng-model="register.regData.password">
+    <br>
+    <!--Subject Code-->
+    <label> Subject Code </label>
+    <input class="form-control" type="text" name="Subject" placeholder="Please enter valid subject code" ng-model="register.regData.subject">
+    <br>
+    <button class="btn btn-primary" type="submit">Register</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">Cancel</a>
+
+</form>
+
+<br>
+
+<div class="row show-hide-message" ng-show="register.successMsg">
+    <div class="alert alert-success"> {{register.successMsg}} </div>
+</div>
+
+<br>
+
+<div class="row show-hide-message" ng-show="register.errorMsg"> 
+    <div class="alert alert-danger"> {{register.errorMsg}} </div>
+</div>
